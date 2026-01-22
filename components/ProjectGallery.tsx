@@ -9,15 +9,7 @@ interface ProjectGalleryProps {
     images: string[];
 }
 
-// BasePath para GitHub Pages
-const BASE_PATH = "/Portoflio-Crusheed";
-
 const getImagePath = (path: string) => {
-    // En producción (GitHub Pages), usar basePath
-    if (process.env.NODE_ENV === "production") {
-        return `${BASE_PATH}${path}`;
-    }
-    // En desarrollo local, no usar basePath
     return path;
 };
 

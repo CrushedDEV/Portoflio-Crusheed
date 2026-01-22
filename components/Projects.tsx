@@ -5,16 +5,8 @@ import Link from "next/link";
 import { portfolioData } from "@/data/portfolio";
 import ProjectGallery from "./ProjectGallery";
 
-// BasePath para GitHub Pages (debe coincidir con next.config.ts)
-const BASE_PATH = "/Portoflio-Crusheed";
-
-// Helper para obtener la ruta correcta con basePath
+// Helper para obtener la ruta correcta
 const getImagePath = (path: string) => {
-    // En producción (GitHub Pages), usar basePath
-    if (process.env.NODE_ENV === "production") {
-        return `${BASE_PATH}${path}`;
-    }
-    // En desarrollo local, no usar basePath
     return path;
 };
 
