@@ -1,20 +1,43 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
 import { portfolioData } from "@/data/portfolio";
+import ProjectGallery from "./ProjectGallery";
 
 // BasePath para GitHub Pages (debe coincidir con next.config.ts)
 const BASE_PATH = "/Portoflio-Crusheed";
 
 // Helper para obtener la ruta correcta con basePath
 const getImagePath = (path: string) => {
-    // En desarrollo local, no usar basePath
-    if (typeof window !== "undefined") {
-        const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-        if (isLocalhost) return path;
-    }
     // En producción (GitHub Pages), usar basePath
-    return `${BASE_PATH}${path}`;
+    if (process.env.NODE_ENV === "production") {
+        return `${BASE_PATH}${path}`;
+    }
+    // En desarrollo local, no usar basePath
+    return path;
 };
 
 export default function Projects() {
+    const [galleryOpen, setGalleryOpen] = useState(false);
+    const [selectedProject, setSelectedProject] = useState<{ title: string; images: string[] } | null>(null);
+
+    const handleProjectClick = (project: typeof portfolioData.projects[0], e: React.MouseEvent) => {
+        // Si tiene link y no es "#", no hacer nada (el link se encarga)
+        if (project.link && project.link !== "#") {
+            return;
+        }
+
+        // Si tiene galería, abrir modal
+        if (project.gallery && project.gallery.length > 0) {
+            e.preventDefault();
+            setSelectedProject({ title: project.title, images: project.gallery });
+            // Small delay to allow component to mount before triggering animation
+            setTimeout(() => {
+                setGalleryOpen(true);
+            }, 10);
+        }
+    };
     return (
         <section id="projects" className="py-20 px-6">
             <div className="container mx-auto max-w-6xl">
@@ -24,10 +47,12 @@ export default function Projects() {
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {portfolioData.projects.map((project, index) => (
+                    {portfolioData.projects.slice(0, 3).map((project, index) => (
                         <div
                             key={index}
-                            className={`group relative apple-surface apple-card p-8 ${project.link && project.link !== "#" ? "cursor-pointer" : ""}`}
+                            className={`group relative apple-surface apple-card p-8 ${project.link && project.link !== "#" ? "cursor-pointer" : project.gallery && project.gallery.length > 0 ? "cursor-pointer" : ""
+                                }`}
+                            onClick={(e) => handleProjectClick(project, e)}
                         >
                             <div className="mb-6">
                                 <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/30 aspect-[16/10]">
@@ -79,12 +104,42 @@ export default function Projects() {
                                     rel="noreferrer"
                                     className="absolute inset-0 rounded-[18px] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
                                     aria-label={`Abrir proyecto ${project.title}`}
+                                    onClick={(e) => e.stopPropagation()}
                                 />
                             ) : null}
                         </div>
                     ))}
                 </div>
+
+                {/* Botón Ver Todos */}
+                <div className="mt-12 text-center">
+                    <Link
+                        href="/projects"
+                        className="inline-flex items-center gap-2 px-8 py-4 bg-accent/90 hover:bg-accent text-white font-semibold rounded-2xl transition-all duration-300 apple-button focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
+                    >
+                        Ver Todos los Proyectos
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                    </Link>
+                </div>
             </div>
+
+            {/* Modal Gallery */}
+            {selectedProject && (
+                <ProjectGallery
+                    isOpen={galleryOpen}
+                    onClose={() => {
+                        setGalleryOpen(false);
+                        // Wait for animation to finish before unmounting
+                        setTimeout(() => {
+                            setSelectedProject(null);
+                        }, 300);
+                    }}
+                    title={selectedProject.title}
+                    images={selectedProject.images}
+                />
+            )}
         </section>
     );
 }

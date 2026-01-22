@@ -32,6 +32,12 @@ export const portfolioData = {
             link: "#",
             image: "/projects/blog.svg",
             imageAlt: "Previsualización del Blog Personal",
+            gallery: [
+                "/projects/blog.svg",
+                "/projects/dropmixr.png",
+                "/projects/line-nine.png",
+                // Añade aquí más imágenes cuando las tengas: "/projects/be-out-1.png", "/projects/be-out-2.png", etc.
+            ],
         }
     ],
     skills: [
