@@ -1,6 +1,14 @@
 import { portfolioData } from "@/data/portfolio";
 import Image from "next/image";
 
+// BasePath para GitHub Pages (debe coincidir con next.config.ts)
+const BASE_PATH = process.env.NODE_ENV === "production" ? "/Portoflio-Crusheed" : "";
+
+// Helper para obtener la ruta correcta con basePath
+const getImagePath = (path: string) => {
+    return `${BASE_PATH}${path}`;
+};
+
 export default function Projects() {
     return (
         <section id="projects" className="py-20 px-6">
@@ -20,7 +28,7 @@ export default function Projects() {
                                 <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-black/30 aspect-[16/10]">
                                     {project.image ? (
                                         <Image
-                                            src={project.image}
+                                            src={getImagePath(project.image)}
                                             alt={project.imageAlt ?? `Previsualización de ${project.title}`}
                                             fill
                                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
