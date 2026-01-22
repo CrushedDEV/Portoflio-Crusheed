@@ -3,7 +3,7 @@ export const portfolioData = {
         name: "Oihan Gomez",
         role: "Desarrollador Web Full Stack",
         location: "España",
-        description: "Apasionado por crear experiencias digitales minimalistas, rápidas y accesibles, con especialización en React, Next.js y diseño de interfaces limpias y eficientes.",
+        description: "Apasionado por crear experiencias digitales minimalistas, rápidas y accesibles, con especialización en Next.js, Laravel y diseño de interfaces limpias y eficientes.",
         email: "oihangomezaz@gmail.com",
         github: "https://github.com/",
         linkedin: "https://linkedin.com/",

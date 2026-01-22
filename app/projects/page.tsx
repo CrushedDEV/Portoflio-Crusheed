@@ -8,14 +8,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 // BasePath para GitHub Pages
-const BASE_PATH = "/Portoflio-Crusheed";
-
 const getImagePath = (path: string) => {
-    if (typeof window !== "undefined") {
-        const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-        if (isLocalhost) return path;
-    }
-    return `${BASE_PATH}${path}`;
+    return path;
 };
 
 export default function AllProjectsPage() {
@@ -37,7 +31,7 @@ export default function AllProjectsPage() {
     return (
         <main className="min-h-screen text-white selection:bg-accent selection:text-white relative">
             <Navbar />
-            
+
             <section className="py-24 px-6">
                 <div className="container mx-auto max-w-6xl">
                     <div className="mb-12">
@@ -58,13 +52,12 @@ export default function AllProjectsPage() {
                         {portfolioData.projects.map((project, index) => (
                             <div
                                 key={index}
-                                className={`group relative apple-surface apple-card p-8 ${
-                                    project.link && project.link !== "#"
+                                className={`group relative apple-surface apple-card p-8 ${project.link && project.link !== "#"
                                         ? "cursor-pointer"
                                         : project.gallery && project.gallery.length > 0
-                                        ? "cursor-pointer"
-                                        : ""
-                                }`}
+                                            ? "cursor-pointer"
+                                            : ""
+                                    }`}
                                 onClick={(e) => handleProjectClick(project, e)}
                             >
                                 <div className="mb-6">
