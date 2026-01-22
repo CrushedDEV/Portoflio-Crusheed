@@ -30,18 +30,51 @@ export const portfolioData = {
             description: "Plataforma de gestión del club VRChat para organizar eventos y actividades comunitarias.",
             tech: ["Laravel", "React", "JavaScript", "MySQL"],
             link: "#",
-            image: "/projects/blog.svg",
+            image: "/projects/beout/1.png",
             imageAlt: "Previsualización del Blog Personal",
             gallery: [
-                "/projects/blog.svg",
-                "/projects/dropmixr.png",
-                "/projects/line-nine.png",
-                // Añade aquí más imágenes cuando las tengas: "/projects/be-out-1.png", "/projects/be-out-2.png", etc.
+                "/projects/beout/1.png",
+                "/projects/beout/2.png",
+                "/projects/beout/3.png",
+                "/projects/beout/4.png",
+                "/projects/beout/5.png",
+                "/projects/beout/6.png",
+                "/projects/beout/7.png",
+                "/projects/beout/8.png",
+                "/projects/beout/9.png",
+                "/projects/beout/10.png",
+                "/projects/beout/11.png",
+                "/projects/beout/12.png",
+                "/projects/beout/13.png",
             ],
-        }
+        },
+        {
+            title: "Portfolio de Robert Marti",
+            description: "Un portfolio personalizado con estetica minimalista y moderna, con sistema de generacion de paginas a partir de un markdown.",
+            tech: ["Next.js", "Tailwind CSS"],
+            link: "https://robertmartib.github.io/portfolio-robert/",
+            image: "/projects/robert-marti.png",
+            imageAlt: "Previsualización del Portfolio de Robert Marti",
+        },         
+        {
+            title: "TradePro",
+            description: "Plataforma de trading con IA",
+            tech: ["Next.js", "TypeScript", "Python", "TensorFlow"],
+            link: "#",
+            image: "/projects/tradepro/1.png",
+            imageAlt: "Previsualización del Blog Personal",
+            gallery: [
+                "/projects/tradepro/1.png",
+                "/projects/tradepro/2.png",
+                "/projects/tradepro/3.png",
+                "/projects/tradepro/4.png",
+                "/projects/tradepro/5.png",
+                "/projects/tradepro/6.png",
+            ],
+        },
     ],
     skills: [
         "Next.js", "React", "TypeScript", "Tailwind CSS",
-        "Node.js", "Git", "MySQL", "Laravel", "Inertia.js", "AWS", "SQLite"
+        "Node.js", "Git", "MySQL", "Laravel", "Inertia.js", "AWS", "SQLite", "Python", "TensorFlow"
     ]
 };
