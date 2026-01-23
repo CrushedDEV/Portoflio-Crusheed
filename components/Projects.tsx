@@ -61,13 +61,46 @@ export default function Projects() {
                                         </div>
                                     )}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent opacity-80 pointer-events-none" />
+
+                                    {/* Persistent Type Badge */}
+                                    <div className="absolute top-3 left-3 px-3 py-1.5 bg-black/60 backdrop-blur-md border border-white/10 rounded-full flex items-center gap-2">
+                                        {project.link && project.link !== "#" ? (
+                                            <>
+                                                <div className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
+                                                <span className="text-[10px] font-semibold tracking-wider uppercase text-white/90">Web</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <div className="w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_8px_rgba(255,20,147,0.6)]" />
+                                                <span className="text-[10px] font-semibold tracking-wider uppercase text-white/90">Galería</span>
+                                            </>
+                                        )}
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <svg className="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                </svg>
+                            <div className="absolute top-4 right-4 flex flex-col items-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                                <div className="p-3 bg-black/50 backdrop-blur-md rounded-full shadow-lg hover:scale-110 transition-transform duration-300 group/icon relative">
+                                    {project.link && project.link !== "#" ? (
+                                        <>
+                                            <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
+                                            <span className="absolute right-full mr-2 top-1/2 -translate-y-1/2 px-2 py-1 bg-black/80 text-white text-xs rounded opacity-0 group-hover/icon:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                                                Visitar Web
+                                            </span>
+                                        </>
+                                    ) : (
+                                        <>
+                                            <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                            </svg>
+                                            <span className="absolute right-full mr-2 top-1/2 -translate-y-1/2 px-2 py-1 bg-black/80 text-white text-xs rounded opacity-0 group-hover/icon:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                                                Ver Galería
+                                            </span>
+                                        </>
+                                    )}
+                                </div>
                             </div>
 
                             <h3 className="text-xl font-bold mb-3 group-hover:text-accent transition-colors">
@@ -107,7 +140,7 @@ export default function Projects() {
                 <div className="mt-12 text-center">
                     <Link
                         href="/projects"
-                        className="inline-flex items-center gap-2 px-8 py-4 bg-accent/90 hover:bg-accent text-white font-semibold rounded-2xl transition-all duration-300 apple-button focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
+                        className="inline-flex items-center gap-2 px-8 py-4 bg-accent/90 hover:bg-accent text-white font-semibold rounded-2xl apple-button hover-smooth-float focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
                     >
                         Ver Todos los Proyectos
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

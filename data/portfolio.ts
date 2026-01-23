@@ -5,9 +5,9 @@ export const portfolioData = {
         location: "España",
         description: "Apasionado por crear experiencias digitales minimalistas, rápidas y accesibles, con especialización en Next.js, Laravel y diseño de interfaces limpias y eficientes.",
         email: "oihangomezaz@gmail.com",
-        github: "https://github.com/",
+        github: "https://github.com/CrushedDEV",
         linkedin: "https://linkedin.com/",
-    },     
+    },
     projects: [
         {
             title: "Line Nine",
@@ -16,15 +16,15 @@ export const portfolioData = {
             link: "https://crusheddev.github.io/Line-Nine/",
             image: "/projects/line-nine.png",
             imageAlt: "Previsualización de Line Nine",
-        },        
+        },
         {
             title: "Dropmixr",
             description: "Plataforma colaborativa para DJs y productores: crea, comparte y descarga mashups musicales mientras conectas con otros artistas.",
-            tech: ["Laravel", "React", "Inertia.js","TypeScript", "Amazon S3"],
+            tech: ["Laravel", "React", "Inertia.js", "TypeScript", "Amazon S3"],
             link: "https://dropmixr.es",
             image: "/projects/dropmixr.png",
             imageAlt: "Previsualización del Dashboard Analítico",
-        },        
+        },
         {
             title: "Be Out",
             description: "Plataforma de gestión del club VRChat para organizar eventos y actividades comunitarias.",
@@ -55,7 +55,7 @@ export const portfolioData = {
             link: "https://robertmartib.github.io/portfolio-robert/",
             image: "/projects/robert-marti.png",
             imageAlt: "Previsualización del Portfolio de Robert Marti",
-        },         
+        },
         {
             title: "TradePro",
             description: "Plataforma de trading con IA",

@@ -9,7 +9,7 @@ export default function TechStack() {
                     Tecnologías
                 </h2>
 
-                <div className="apple-surface apple-card p-8">
+                <div className="apple-surface rounded-[18px] p-8">
                     <div className="flex flex-wrap gap-4 justify-center">
                         {portfolioData.skills.map((skill) => (
                             <div

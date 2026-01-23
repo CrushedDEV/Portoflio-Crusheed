@@ -4,10 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const navItems = [
-    { name: "Inicio", href: "#hero" },
-    { name: "Proyectos", href: "#projects" },
-    { name: "Tecnologías", href: "#skills" },
-    { name: "Contacto", href: "#contact" },
+    { name: "Inicio", href: "/" },
+    { name: "Ver todos los proyectos", href: "/projects" },
 ];
 
 export default function Navbar() {
